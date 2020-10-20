@@ -5,6 +5,7 @@ module.exports = {
 	name: 'clear',
     description: 'Deletes a specified amount of messages.',
     cooldown: 5,
+    guildOnly: true,
 	execute(message, args) {
 
         if (message.member.hasPermission('MANAGE_MESSAGES')) {
@@ -23,7 +24,7 @@ module.exports = {
     
     message.channel.bulkDelete(amount, true).catch(err => {
         console.error(err);
-        message.channel.send('There was an error trying to prune messages in this channel!');
+        message.channel.send('There was an error trying to clear messages in this channel!');
     }); 
 
         }

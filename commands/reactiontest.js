@@ -3,7 +3,9 @@ const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 
 module.exports = {
 	name: 'reactiontest',
-	description: 'Testing Reactions',
+    description: 'Testing Reactions',
+    cooldown: 5,
+    guildOnly: true,
 	execute(message, args) {
         message.channel.bulkDelete(1, true);
         
