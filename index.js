@@ -3,11 +3,15 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix, token } = require('./config.json');
 const fruits = require('./commands/fruits');
+// const Keyv = require('keyv');
 
 // create a new Discord client
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 const cooldowns = new Discord.Collection();
+// const keyv = new Keyv('D:/discord-bot/storage.sqlite');
+
+// keyv.on('error', err => console.error('Keyv connection error:', err));
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 

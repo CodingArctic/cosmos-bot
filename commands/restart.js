@@ -4,8 +4,16 @@ module.exports = {
 	cooldown:0,
 	execute(message, args) {
 
-        message.reply('Restarting...');
+		if (message.author.id === '160504751203549185') {
 
-		process.exit();
+
+			process.exit();
+
+		}
+
+        else {
+			message.reply('Only the owner of this bot can run that commmand!');
+		}
+
 	}
 };

@@ -9,7 +9,7 @@ module.exports = {
 
         if (message.member.hasPermission('MANAGE_MESSAGES')) {
 
-        const amount = parseInt(args[0]) + 1;
+        const amount = parseInt(args[0]);
         
         if (isNaN(amount)) {
             return message.reply('That doesn\'t seem to be a valid number.');
@@ -19,21 +19,19 @@ module.exports = {
         return message.reply('Please input a number between 1 and 100.');
     }
 
-
+    message.channel.bulkDelete(1);
+    
     message.channel.bulkDelete(amount, true).catch(err => {
         console.error(err);
         message.channel.send('There was an error trying to prune messages in this channel!');
-    });
+    }); 
 
         }
 
         else {
 
-            message.channel.bulkDelete(1);
-
             message.reply('You need the Manage Messages permission to do that!');
-        }
-
+        }       
 
 	},
 };
