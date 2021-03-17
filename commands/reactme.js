@@ -2,35 +2,25 @@ const { SystemChannelFlags } = require("discord.js");
 
 module.exports = {
 	name: 'reactme',
-	description: 'Reacts to your message with your specified emojis',
+	description: 'Reacts to your message with your specified emoji',
 	execute(message, args) {
+
+		var emoji = (args[0]);
+
+		if (emoji == "undefined") {
+			message.reply('Please specify an emoji!')
+		}
+
+		else if ((args[1]) !== "undefined") {
+			console.log(args[1]);
+			message.reply('I can only react with 1 emoji!');
+		}
+
+		else {
 		
-		var i = 0;
-
-		for (i = 0; i < 21;) {
-
-			var emoji = (args[i]);
-
-			console.log(`Looks like the emoji is ${emoji}`);
-
-			if (emoji === "undefined") {
-				console.log('emoji detected blank');
-				break;
-			}
-
-			console.log(`Looks like the emoji is ${emoji}`);
-
-			message.react(emoji);
-
-			console.log(`Looks like the emoji is ${emoji}`);
-			console.log('Here');
-
-			i++;
-
-			console.log(`Looks like the emoji is ${emoji}`);
+		message.react(emoji);
 
 		}
 
-		console.log('made it out');
 	},
 };

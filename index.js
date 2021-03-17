@@ -18,7 +18,7 @@ const cooldowns = new Discord.Collection();
 // this event will only trigger one time after logging in
 client.once('ready', () => {
     console.log('Initialized');
-    client.user.setPresence({ activity: { name: '-help for commands' }, status: 'online' });
+    client.user.setPresence({ activity: { name: 'with my code!' }, status: 'online' });
 });
 
 
