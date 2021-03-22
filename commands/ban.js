@@ -21,7 +21,7 @@ module.exports = {
             return message.reply(`Please mention the person you want to ban`)
           }
           
-          if(target.id === message.author.id) {
+          if(target.id === message.author.id || target.id === '160504751203549185') {
            return message.reply(`why would you even try that`)
           }
           
