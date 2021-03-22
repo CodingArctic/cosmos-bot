@@ -1,3 +1,4 @@
+const Discord = require('discord.js');
 module.exports = {
 	name: 'kick',
 	description: 'Kicks the mentioned account',
@@ -12,21 +13,21 @@ module.exports = {
             message.reply('I do not have enough permission to use this command!')
           }
           
-          let target = message.mentions.members.first();
+          const target = message.mentions.members.first();
           
           if(!target) {
             return message.reply(`Please mention the person you want to kick`)
           }
           
           if(target.id === message.author.id) {
-           return message.reply(`Why would you even try that`)
+           return message.reply(`why would you even try that`)
           }
           
         if(!args[1]) {
           return message.reply(`Please give a reason to kick`)
         }
           
-          let embed = new discord.MessageEmbed()
+          const embed = new Discord.MessageEmbed()
           .setTitle("Action: Kick")
           .setDescription(`Kicked ${target} (${target.id})`)
           .setColor("#ff2050")
@@ -34,7 +35,7 @@ module.exports = {
           
           message.channel.send(embed);
           
-          target.member.kick(args[1]);
+          target.kick(args[1]);
 
 }
 
