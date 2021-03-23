@@ -3,6 +3,7 @@ module.exports = {
 	name: 'kick',
 	description: 'Kicks the mentioned account',
 	cooldown:5,
+  guildOnly: true,
 	execute(message, args) {
 
         if(!message.member.hasPermission("KICK_MEMBERS")) {

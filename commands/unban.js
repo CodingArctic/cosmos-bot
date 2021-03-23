@@ -3,6 +3,7 @@ module.exports = {
 	name: 'unban',
 	description: 'Unbans the mentioned account',
 	cooldown:5,
+  guildOnly: true,
 	execute(message, args) {
 
         if(!message.member.hasPermission("BAN_MEMBERS")) {

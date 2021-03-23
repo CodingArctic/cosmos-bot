@@ -4,6 +4,8 @@ const { guildOnly } = require("./server");
 module.exports = {
 	name: 'channel',
 	description: 'Makes a channel with specified name',
+    cooldown: 5,
+    guildOnly: true,
 	execute(message, args) {
 
         const member = message.guild.member(message.author);
