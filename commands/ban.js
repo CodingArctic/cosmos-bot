@@ -1,17 +1,17 @@
 const Discord = require('discord.js');
 module.exports = {
-	name: 'kick',
-	description: 'Kicks the mentioned account',
+	name: 'ban',
+	description: 'Bans the mentioned account',
 	cooldown:5,
   guildOnly: true,
 	execute(message, args) {
 
-        if(!message.member.hasPermission("KICK_MEMBERS")) {
+        if(!message.member.hasPermission("BAN_MEMBERS")) {
             message.reply('You don\'t have permission to do that!')
             return;
           }
           
-          if(!message.guild.me.hasPermission("KICK_MEMBERS")) {
+          if(!message.guild.me.hasPermission("BAN_MEMBERS")) {
             message.reply('I do not have enough permission to use this command!')
             return;
           }
@@ -19,29 +19,26 @@ module.exports = {
           const target = message.mentions.members.first();
           
           if(!target) {
-            message.reply(`Please mention the person you want to kick`)
-            return;
+            return message.reply(`Please mention the person you want to ban`)
           }
           
           if(target.id === message.author.id || target.id === '160504751203549185') {
-           message.reply(`why would you even try that`)
-           return;
+           return message.reply(`why would you even try that`)
           }
           
         if(!args[1]) {
-          message.reply(`Please give a reason to kick`)
-          return;
+          return message.reply(`Please give a reason to ban`)
         }
           
           const embed = new Discord.MessageEmbed()
-          .setTitle("Action: Kick")
-          .setDescription(`Kicked ${target} (${target.id})`)
+          .setTitle("Action: Ban")
+          .setDescription(`Banned ${target} (${target.id})`)
           .setColor("#ff2050")
-          .setFooter(`Kicked by ${message.author.username}`);
+          .setFooter(`Banned by ${message.author.username}`);
           
           message.channel.send(embed);
           
-          target.kick(args[1]);
+          target.ban(args[1]);
 
 }
 
