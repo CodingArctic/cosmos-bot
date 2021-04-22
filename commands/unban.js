@@ -19,7 +19,7 @@ module.exports = {
           const target = message.mentions.members.first();
           
           if(!target) {
-            return message.reply(`Please mention the person you want to uban`)
+            return message.reply(`Please mention the person you want to unban`)
           }
           
           if(target.id === message.author.id) {

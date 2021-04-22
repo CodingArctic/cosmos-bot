@@ -6,13 +6,12 @@ module.exports = {
 
 		if (message.author.id === '160504751203549185') {
 
-
 			process.exit();
 
 		}
 
         else {
-			message.reply('Only the owner of this bot can run that commmand!');
+			message.reply('Only my owner can run that commmand!');
 		}
 
 	}
