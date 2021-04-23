@@ -18,7 +18,7 @@ module.exports = {
         .setColor('#0099ff')
         .setAuthor('Cosmos Bot', 'https://i.imgur.com/yab6QxW.jpg')
         .setTitle('Poll')
-        .addField(question)
+        .setDescription(question)
         .setFooter('Requested by ' + message.author.tag, message.author.avatarURL())
 
         message.channel.send(pollEmbed).then(sentEmbed => {
