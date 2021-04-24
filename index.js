@@ -17,10 +17,16 @@ const cooldowns = new Discord.Collection();
 
 // when the client is ready, run this code
 // this event will only trigger one time after logging in
-client.once('ready', () => {
-    console.log('Initialized');
-    client.user.setPresence({ activity: { name: 'DaBaby | -help' }, status: 'online' });
-});
+client.on("ready", () =>{
+    console.log(`Logged in as ${client.user.tag}`);
+    client.user.setPresence({
+        status: "online",  //You can show online, idle....
+        activity: {
+            name: "DaBaby | -help",  //The message shown
+            type: "LISTENING" //PLAYING: WATCHING: LISTENING: STREAMING:
+        }
+    });
+ });
 
 
 client.on('message', message => {
@@ -70,10 +76,36 @@ client.on('message', message => {
 
 	try {
 		command.execute(message, args);
-	} catch (error) {
+	}
+
+	 catch (error) {
+
+		let arctic = message.guild.members.cache.get('160504751203549185');
+
 		console.error(error);
-		message.reply('there was an error trying to execute that command!');
+
+		if (arctic) {
+
+		arctic.send(`something went wrong in "${message.guild.name}", here are the details:\n` + error).then(() => {
+
+			return message.reply('There was an error when executing that command, my dev has been notified.');
+
+		}).catch(() => {
+
+			return message.reply('There was an error when executing that command, and for some reason I can\'t send a dm to my dev.')
+
+		})
+	}
+	
+	else {
+		return message.reply('There was an error when executing that command, and I can\'t send a dm to my dev because he\'s not in this server.')
+	}
+
+
+
+		
 	}
 });
+
 
 client.login(token);
