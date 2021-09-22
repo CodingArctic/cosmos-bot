@@ -22,7 +22,7 @@ client.on("ready", () =>{
     client.user.setPresence({
         status: "online",  //You can show online, idle....
         activity: {
-            name: "DaBaby | -help",  //The message shown
+            name: "Montero | -help",  //The message shown
             type: "LISTENING" //PLAYING: WATCHING: LISTENING: STREAMING:
         }
     });
