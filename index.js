@@ -2,9 +2,13 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const { prefix } = require('./config.json');
 const { token } = require('./token.json')
+const ytdl = require('ytdl-core');
+const ytSearch = require('yt-search');
 
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
+
+const queue = new Map();
 
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
@@ -75,7 +79,7 @@ client.on('message', message => {
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
 	try {
-		command.execute(message, args);
+		command.execute(message, args, commandName);
 	}
 
 	 catch (error) {
