@@ -8,13 +8,13 @@ module.exports = {
     name: 'play',
     aliases: ['skip', 'stop', 'p', 'pl', 'leave'], //We are using aliases to run the skip and stop command follow this tutorial if lost: https://www.youtube.com/watch?v=QBUJ3cdofqc
     cooldown: 0,
-    description: 'Advanced music bot',
+    description: 'Music commands',
     guildOnly: true,
     async execute(message,args, commandName, client, Discord){
 
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
         const voice_channel = message.member.voice.channel;
-        if (!voice_channel) return message.reply('You need to be in a channel to execute this command!');
+        if (!voice_channel) return message.reply('You need to be in a voice channel to execute this command!');
         const permissions = voice_channel.permissionsFor(message.client.user);
         if (!permissions.has('CONNECT')) return message.reply('You dont have the correct permissions');
         if (!permissions.has('SPEAK')) return message.reply('You dont have the correct permissions');
