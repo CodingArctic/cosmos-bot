@@ -73,7 +73,7 @@ module.exports = {
                 }
             } else{
                 server_queue.songs.push(song);
-                return message.reply(`👍 **${song.title}** added to queue!`);
+                return message.reply(` **${song.title}** added to queue!`);
             }
         }
 
@@ -102,7 +102,7 @@ const video_player = async (guild, song) => {
 }
 
 const skip_song = (message, server_queue) => {
-    if (!message.member.voice.channel) return message.reply('You need to be in a channel to execute this command!');
+    if (!message.member.voice.channel) return message.reply('You need to be in a voice channel to execute this command!');
     if(!server_queue){
         return message.reply(`There are no songs in queue 😔`);
     }
@@ -110,7 +110,7 @@ const skip_song = (message, server_queue) => {
 }
 
 const stop_song = (message, server_queue) => {
-    if (!message.member.voice.channel) return message.reply('You need to be in a channel to execute this command!');
+    if (!message.member.voice.channel) return message.reply('You need to be in a voice channel to execute this command!');
     server_queue.songs = [];
     server_queue.connection.dispatcher.end();
 }
