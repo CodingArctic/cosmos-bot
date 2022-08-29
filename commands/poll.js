@@ -7,8 +7,15 @@ module.exports = {
 
         message.channel.bulkDelete(1);
 
+
         let question = args[0];
 
+        if (!question) {
+            message.reply('Please specify a question!')
+            .then(message => message.delete({timeout: 3000}))
+            return
+        }
+ 
         for(let i = 1; i < args.length; i++)
         {
             question += " " + args[i];

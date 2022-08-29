@@ -24,7 +24,7 @@ module.exports = {
           }
           
           if(target.id === message.author.id || target.id === '160504751203549185') {
-           message.reply(`why would you even try that`)
+           message.reply(`Why would you even try that`)
            return;
           }
           
