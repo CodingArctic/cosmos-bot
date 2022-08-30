@@ -23,7 +23,7 @@ module.exports = {
             return;
           }
           
-          if(target.id === message.author.id || target.id === '160504751203549185') {
+          if(target.id === message.author.id || target.id === '160504751203549185' || target.id === '629068098896527378') {
            message.reply(`Why would you even try that`)
            return;
           }
